@@ -1,0 +1,54 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+
+int main() {
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++)
+    {
+        int b,p,f;
+        int x,y,z,ans;
+        cin>>b>>p>>f;
+        int h,c;
+        cin>>h>>c;
+        if(b==2)
+            cout<<std::max(h,c)<<endl;
+        else if(b<2)
+            cout<<0<<endl;
+        else{
+            x=std::max(p,f);
+            int w=std::min(p,f);
+            y=(p+f);
+            z=b/2;
+            if(y<z)
+            {
+                ans=(x*std::max(h,c))+((y-x)*std::min(h,c));
+                cout<<ans<<endl;
+            }
+            else if(b==p==f)
+            {
+                ans=z*std::max(h,c);
+                cout<<ans<<endl;
+                
+            }
+            else if(p==f && p>=z)
+            {
+                ans=z*std::max(h,c);
+                cout<<ans<<endl;
+            }
+           else
+                {
+                    ans=(std::min(p,f)*std::max(h,c))+((z-w)*std::min(h,c));
+                         cout<<ans<<endl;
+                }
+            }
+           
+        }
+     return 0;
+}
